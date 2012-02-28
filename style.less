@@ -1,0 +1,155 @@
+//Define colors (our colors are from http://www.colorcombos.com/color-scheme-327.html)
+@RED: #9D2E2C;
+@YELLOW: #F9EA99;
+@BLUE: #7DB6D5;
+@ORANGE: #E7A555;
+@DARK: #4A4747;
+
+//Define this mixin to create our cross-browser gradients
+.background-gradient (@color1) {
+	@ammount: 10%;
+	background: @color1; /* Old browsers */
+	background: linear-gradient(top,  @color1 0%, darken(@color1, @ammount) 10% 100%) fixed; /* W3C */
+	background: -moz-linear-gradient(top,  @color1 0%, darken(@color1, @ammount) 100%) fixed; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color1), color-stop(100%,darken(@color1, @ammount))) fixed; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  @color1 0%,darken(@color1, @ammount) 100%) fixed; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  @color1 0%,darken(@color1, @ammount) 100%) fixed; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  @color1 0%,darken(@color1, @ammount) 100%) fixed; /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@color1', endColorstr='darken(@color1, @ammount)',GradientType=0 ); /* IE6-9 */
+}
+
+//Define a gradient to use for fields
+.field-background {
+	background: rgb(178,178,178); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(178,178,178,1) 0%, rgba(224,224,224,1) 23%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(178,178,178,1)), color-stop(23%,rgba(224,224,224,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(178,178,178,1) 0%,rgba(224,224,224,1) 23%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(178,178,178,1) 0%,rgba(224,224,224,1) 23%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(178,178,178,1) 0%,rgba(224,224,224,1) 23%,rgba(255,255,255,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(178,178,178,1) 0%,rgba(224,224,224,1) 23%,rgba(255,255,255,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2b2b2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+//Define our link colors
+a {
+	color: @DARK;
+	&:hover {color: @DARK}
+	&:visited {color: @DARK}
+	&:active {color: @DARK}
+}
+
+//Define our text style
+.normal-text {
+	color: black;
+	letter-spacing: -1px;
+	text-shadow: -1px -1px 0px darken(@ORANGE, 20%);
+}
+
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	font-family: 'Quicksand',Arial,serif;
+	font-weight: 400;
+	.background-gradient(@DARK);
+}
+div#container {
+	width: 850px;
+	margin: 20px auto;
+	padding: 20px;
+}
+div#controls {
+	.normal-text;
+	padding: 15px;
+	border: 1px solid black;
+	border-radius: 8px;
+	box-shadow: 0px 0px 20px #666;
+	font-size: 1.8em;
+	text-align: right;
+	.background-gradient(@ORANGE);
+}
+div#searchbox {
+	margin-bottom: 10px;
+	text-align: left;
+	border: 1px solid black;
+	border-radius: 5px;
+	position: relative;
+	.field-background;
+}
+input#query {
+	font-size: inherit;
+	height: 50px;
+	width: 670px;
+	padding-right: 150px;
+	padding-left: 5px;
+	background: transparent;
+	border: transparent;
+	outline: none;
+}
+button#searchBtn {
+	font-size: inherit;
+	font-family: inherit;
+	letter-spacing: -2px;
+	height: 40px;
+	width: 110px;
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	margin-top: -20px;
+	border: 1px solid black;
+	border-radius: 5px;
+	.background-gradient(@ORANGE);
+}
+button#searchBtn:hover {
+	.background-gradient(lighten(@ORANGE, 10%));
+}
+button#searchBtn:active {
+	.background-gradient(darken(@ORANGE, 10%));
+}
+select#count {
+	font-size: inherit;
+	font-family: inherit;
+	height: 40px;
+	border: 1px solid black;
+	border-radius: 5px;
+	outline: none;
+	.field-background;
+}
+div#searchResults {
+	.normal-text;
+	width: 735px;
+	margin: 0px auto 50px auto;
+	padding: 20px;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	box-shadow: 0px 10px 20px #666;
+	.background-gradient(@ORANGE);
+}
+div#content {
+	display: table;
+	width: 100%;
+	margin-top: 5px;
+}
+div.row {
+	display: table-row;
+	line-height: 22px;
+}
+div.row:nth-child(2n) {
+	background-color: lighten(@ORANGE, 5%);
+}
+div.left {
+	display: table-cell;
+	text-align: left;
+}
+div.middle {
+	display: table-cell;
+	text-align: center;
+}
+div.right {
+	display: table-cell;
+	text-align: right;
+}

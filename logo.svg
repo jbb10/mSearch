@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="345.55px" height="89px" viewBox="0 0 345.55 89" enable-background="new 0 0 345.55 89" xml:space="preserve">
+<style type="text/css" >
+	<![CDATA[
+		@font-face {
+			font-family: Helvetica_Neue_Light;
+			src: url('fonts/hnl.otf');
+		}
+		@font-face {
+			font-family: Helvetica_Neue_Ultralight;
+			src: url('fonts/hnu.otf');
+		}
+	]]>
+</style>
+<filter  x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" id="shadow">
+	<feGaussianBlur  in="SourceAlpha" result="blur" stdDeviation="2"></feGaussianBlur>
+	<feOffset  in="blur" result="offsetBlurredAlpha" dx="0" dy="0"></feOffset>
+	<feMerge>
+		<feMergeNode  in="offsetBlurredAlpha"></feMergeNode>
+		<feMergeNode  in="SourceGraphic"></feMergeNode>
+	</feMerge>
+</filter>
+<rect x="6.551" y="38.113" fill="none" width="54.72" height="46.066"/>
+<text transform="matrix(1 0 0 1 6.5513 81.1699)" fill="#E7A554" font-family="'Helvetica_Neue_Light'" font-size="60.3044">m</text>
+<rect x="56.758" y="10.056" fill="none" filter="url(#shadow)" width="283.792" height="70.773"/>
+<text transform="matrix(1 0 0 1 56.7583 80.0225)" fill="#E7A554" filter="url(#shadow)" font-family="'Helvetica_Neue_Ultralight'" font-size="97.9946">Search</text>
+<g>
+	<path fill="#E7A554" stroke="#000000" stroke-width="0.75" stroke-miterlimit="10" d="M44.684,47.172l0.617-9.882l7.417-15.898
+		L41.313,32.586l0.866-15.947l-6.706,14.056L31.91,4.105l-3.563,26.59l-6.706-14.056l0.865,15.947L11.103,21.392L18.52,37.29
+		l0.617,9.882c0,0,6.794-1.809,13.068-1.809C38.48,45.363,44.684,47.172,44.684,47.172z"/>
+	<g>
+		<circle fill="#F8E998" stroke="#000000" stroke-miterlimit="10" cx="11.104" cy="21.392" r="1.636"/>
+		<circle fill="#F8E998" stroke="#000000" stroke-miterlimit="10" cx="21.644" cy="16.647" r="1.636"/>
+		<circle fill="#F8E998" stroke="#000000" stroke-miterlimit="10" cx="42.176" cy="16.633" r="1.636"/>
+		<circle fill="#F8E998" stroke="#000000" stroke-miterlimit="10" cx="52.717" cy="21.42" r="1.636"/>
+	</g>
+</g>
+</svg>
