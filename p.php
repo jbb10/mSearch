@@ -1,23 +1,19 @@
 <?php
-	$url = "http://www.google.com/search?q=".urlencode("site:zippyshare.com \"Name:\" ".$_GET['query']." \"Size:\"")."&start=".$_GET['resultpage'];
-
-    // OK cool - then let's create a new cURL resource handle
-    $ch = curl_init();
- 
-    // Now set some options (most are optional)
- 
-    // Set URL to download
-    curl_setopt($ch, CURLOPT_URL, $url);
- 
-    // Include header in result? (0 = yes, 1 = no)
-    curl_setopt($ch, CURLOPT_HEADER, 0);
- 
-    // Should cURL return or print out the data? (true = return, false = print)
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, false);
- 
-    // Download the given URL, and return output
-    $output = curl_exec($ch);
- 
-    // Close the cURL resource, and free system resources
-    curl_close($ch);
+	$url = "http://www.google.com/search?q=";
+	switch ($_GET['site']) {
+		case 0:
+		$url .= urlencode("site:zippyshare.com \"Name:\" ".$_GET['query']." \"Size:\"");
+		break;
+		case 1:
+		$url .= urlencode("site:mediafire.com ".$_GET['query']." \"mb)\" OR \"kb\"");
+		break;
+	}
+	$url .= "&start=".$_GET['resultpage'];
+	
+	$reader = curl_init();
+	curl_setopt($reader, CURLOPT_URL, $url);
+	curl_setopt($reader, CURLOPT_HEADER, 0);
+	curl_setopt($reader, CURLOPT_RETURNTRANSFER, false);
+	curl_exec($reader);
+	curl_close($reader);
 ?>
