@@ -1,10 +1,10 @@
 var results = []
 function printResults() {
-	//Röðum fylkinu í minnkandi röð
+	//Sort the array in decreasing order
 	results.sort(function(a,b) {
 		return a[2] - b[2]
 	})
-	//Þurrkum út gamlar niðurstöður
+	//Erase old text in the div
 	$('div#content').text("")
 	for(var i = 0; i != results.length; i++) {
 		$('div#content')
@@ -14,48 +14,47 @@ function printResults() {
 		)
 	}
 	
-	//Birtum niðrustöður
+	//Show the results
 	$('div#searchResults').slideDown("fast")
 }
 
 function search() {
-	//Hreinsum gamlar niðurstöður úr fylkinu
+	//Erase old results
 	results = []
 	
-	//Smíðum leitarstreng
+	//Build query
 	var query = $('input#query').val()
 	
-	//Athugum hversu oft þarf að sækja niðurstöður
+	//Check how often results need to be fetched.
+	//This is determined by the number of iterations
+	//the user wants.
 	repeat = $('select#count').val()
 	
 	for(var site in sites) {
-		//Þessi breyta er notuð til að hætta við callbacks ef þau
-		//koma eftir að keyrslu er lokið
+		//The finished variable is used to cancel callbacks if
+		//they arrive after execution of the next loop is finished
 		var finished = false
 		for(var i = 0; i < repeat; i++) {
-			//Búum til lokun utan um get requestið svo að site breytan
-			//sé nothæf í callbackinu
+			//To make the site variable accessable in the get
+			//request's callback, a closure is created around
+			//the get request.
 			(function(siteID) {
 				$.get("p.php?query="+query+"&resultpage="+i*10+"&site="+siteID, function (data) {
 					if(finished) {
-						//Höfum í huga að þetta callback er líklegast keyrt löngu
-						//eftir að for-lykkjan klárar allar sínar umferðir. Neyðumst
-						//því til að láta öll callback-in keyra og stoppa þau þá á
-						//þennan hátt ef ekki er þörf á þeim
+						//If this particular callback is not required we'll drop it
 						return false
 					}
-					var result = $(data) //result er nú DOM tré google síðunnar
+					var result = $(data) //The DOM tree of the response page is now in result
 					$.each(result.find('li.g'), function(key, object) {
 						processedResults = sites[siteID].processResult(object)
 						results.push(processedResults)
 					})
-					//prentum niðurstöðurnar
+					//print the results
 					printResults()
-					
-					//Athugum hvort niðurstöður í results séu margfeldi
-					//af 10. ef svo er ekki pottþétt allar niðurstöður komnar
+
+					//If the number of results currently in the results array
+					//is not a multiple of 10, the search is over.
 					if(results.length % 10 != 0) {
-						//allar niðurstöður eru komnar
 						finished = true
 					}
 				})

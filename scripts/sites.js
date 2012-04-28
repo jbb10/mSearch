@@ -7,15 +7,15 @@ zippyshare = new Object()
 zippyshare.id = 0
 zippyshare.processResult = searchZippyshare
 function searchZippyshare(results) {
-	//Sækjum hlekk niðurstöðunnar
+	//Pick out the search result's link
 	var link = "http://"+$(results).find('div > cite').text()
 
-	//Sækjum nafn niðurstöðunnar
+	//Pick out the search result's name
 	var name = $(results).find('div.s').text()
 	name = name.match(/Name: .*(?= Size)/).toString()
 	name = name.substring(6)
 	
-	//Sækjum stærðina
+	//Pick out the search result's size
 	var size = $(results).find('div.s').text()
 	size = size.match(/Size: .*/)
 	if(size == null) {
@@ -23,34 +23,36 @@ function searchZippyshare(results) {
 	} else {
 		size = size.toString()
 		
-		//Fjarlægi aftan af stærðinni
+		//Remove text behind the size
 		size = size.replace(/ MB.*/,"")
 		
-		//Fjarlægi framan af stærðinni
+		//Remove text in front of the size
 		size = size.substring(6)
 		
-		//breyti úr streng í tölu
+		//cast to float
 		size = parseFloat(size,10)
 	}
 
-	//Skellum nú niðurstöðunni í results fylkið
 	var result = [name,link,size]
 	return result
 }
 sites.push(zippyshare)
 
 //Mediafire
+
+//This site is not giving good search results
+
 mediafire = new Object()
 mediafire.id = 1
 mediafire.processResult = searchMediafire
 function searchMediafire(results) {
-	//Sækjum hlekk niðurstöðunnar
+	//Pick out the search result's link
 	var link = "http://"+$(results).find('div > cite').text()
 
-	//Sækjum nafn niðurstöðunnar
+	//Pick out the search result's name
 	var name = $(results).find('h3.r > a').text()
 
-	//Sækjum stærðina
+	//Pick out the search result's size
 	var size = $(results).find('div.s').text()
 	size = size.match(/\([0-9]*\.[0-9]* MB\)/)
 	if(size == null) {
@@ -58,17 +60,16 @@ function searchMediafire(results) {
 	} else {
 		size = size.toString()
 		
-		//Fjarlægi aftan af stærðinni
+		//Remove text behind the size
 		size = size.replace(/ MB\)/,"")
 		
-		//Fjarlægi framan af stærðinni
+		//Remove text in front of the size
 		size = size.substring(1)
 		
-		//breyti úr streng í tölu
+		//cast to float
 		size = parseFloat(size,10)
 	}
 
-	//Skellum nú niðurstöðunni í results fylkið
 	var result = [name,link,size]
 	return result
 }
