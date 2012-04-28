@@ -39,7 +39,7 @@ function searchZippyshare(results) {
 sites.push(zippyshare)
 
 //Mediafire
-
+/*
 //This site is not giving good search results
 
 mediafire = new Object()
@@ -74,3 +74,4 @@ function searchMediafire(results) {
 	return result
 }
 sites.push(mediafire)
+*/

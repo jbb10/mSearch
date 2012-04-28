@@ -46,18 +46,49 @@ a {
 }
 
 html {
+	position: relative;
 	height: 100%;
 }
 body {
+	position: relative;
 	height: 100%;
 	font-family: 'Quicksand',Arial,serif;
 	font-weight: 400;
 	.background-gradient(@DARK);
 }
 div#container {
+	position: relative;
 	width: 850px;
 	margin: 20px auto;
 	padding: 20px;
+}
+div#popup {
+	position: absolute;
+	.background-gradient(lighten(@DARK, 10%));
+	width: 650px;
+	height: 340px;
+	left: 50%;
+	margin-left: -350px;
+	padding: 25px;
+	top: 55px;
+	z-index: 1;
+	border: 1px solid black;
+	border-radius: 8px;
+	box-shadow: 0px 0px 20px #666;
+	opacity: 0.97;
+}
+svg#closeButton {
+	position: relative;
+	top: -45px;
+	left: 655px;
+	cursor: pointer;
+	opacity: 1.0;
+}
+svg#aboutButton {
+	position: relative;
+	top: -7px;
+	left: 455px;
+	cursor: pointer;
 }
 div#controls {
 	.normal-text;

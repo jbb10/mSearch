@@ -62,7 +62,9 @@ function search() {
 		}
 	}
 }
+var closeHover;
 $(document).ready(function() {
+	//Attach click events to buttons
 	$('input#query').keypress(function(event) {
 		if(event.which == 13 && $('input#query').val() != "") {
 			search()
@@ -71,6 +73,25 @@ $(document).ready(function() {
 	$('button#searchBtn').on('click', function() {
 		if($('input#query').val() != "") {
 			search()
+		}
+	})
+	$('svg#aboutButton').on('mouseup', function() {
+		$('div#popup').fadeIn("fast")
+	})
+	
+	//Hide the popup if user clicks on the close
+	//button or outside the popup
+	$('html').on('mousedown', function() {
+		$('div#popup').fadeOut("fast")
+	})
+	$('svg#closeButton').hover(function() {
+		closeHover = true
+	}, function() {
+		closeHover = false
+	})
+	$('div#popup').on('mousedown', function(e) {
+		if(!closeHover) {
+			e.stopPropagation()
 		}
 	})
 })
