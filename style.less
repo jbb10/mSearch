@@ -53,10 +53,11 @@ div#container {
 	position: relative;
 }
 div#popup {
+	color: @ORANGE;
+	text-shadow: -1px -1px 0px darken(@DARK, 20%);
 	position: absolute;
 	.background-gradient(lighten(@DARK, 10%));
 	width: 650px;
-	height: 340px;
 	left: 50%;
 	margin-left: -350px;
 	padding: 25px;
@@ -68,9 +69,9 @@ div#popup {
 	opacity: 0.97;
 }
 svg#closeButton {
-	position: relative;
-	top: -45px;
-	left: 655px;
+	position: absolute;
+	top: -20px;
+	right: -20px;
 	cursor: pointer;
 	opacity: 1.0;
 }
