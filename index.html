@@ -23,6 +23,20 @@
 				<line fill="none" stroke="#E7A555" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="28.559" y1="11.996" x2="11.996" y2="28.559"/>
 				<line fill="none" stroke="#E7A555" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="11.996" y1="11.996" x2="28.559" y2="28.559"/>
 			</svg>
+			<h2 style="margin-top: 0px">What is this?</h2>
+			<p>
+			mSearch is a webapp designed to make it easier for people to search for music online. When a user types a query into the searchbox and hits Search, a google search is performed in the background. mSearch simply goes through the results from the google search and displays them in a simple and easy to use way.
+			</p>
+			<h2>How does it work?</h2>
+			<p>
+			There are a lot of hosting sites out there that host a lot of music. Most of them don't provide a search to search through the hosted content so one must have a direct link to the mp3 file to download it. Google indexes these sites like any other and by typing something like:
+			<code style="padding: 10px 20px; display: block;">site:zippyshare.com Lady Gaga</code>
+			into a google search, one can search a hosting site like any other. This is what mSearch does.
+			</p>
+			<h2>What are Iterations?</h2>
+			<p>
+			When a user performs a Google search he gets 10 results per page and to get more he needs to advance to the next page of search results. Since mSearch performs Google searches when searching for music it only gets 10 results like a normal Google user. Iterations determines how often mSearch "goes to the next page" in the google results. The more iterations, the more search results.
+			</p>
 		</div>
 		<embed src="logo.svg"></embed>
 		<svg version="1.1" id="aboutButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -34,20 +48,13 @@
 		</svg>
 		<div id="controls">
 			<div id="searchbox">
-				<input type="text" id="query" maxlength="300" placeholder="type the name of a song, artist or album"/>
+				<input type="text" id="query" maxlength="300" autofocus="autofocus" placeholder="type the name of a song, artist or album"/>
 				<button id="searchBtn">Search</button>
 			</div>
 			Iterations:
 			<select id="count">
-				<option value="1" selected="selected">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
+				<option value="1">1</option>
+				<option value="5" selected="selected">5</option>
 				<option value="10">10</option>
 			</select>
 		</div>
