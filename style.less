@@ -30,21 +30,13 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2b2b2', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 
-//Define our link colors
-a {
-	color: @DARK;
-	&:hover {color: @DARK}
-	&:visited {color: @DARK}
-	&:active {color: @DARK}
-}
-
 //Define our text style
 .normal-text {
-	color: black;
 	letter-spacing: -1px;
-	text-shadow: -1px -1px 0px darken(@ORANGE, 20%);
 }
-
+a {
+	text-decoration: none;
+}
 html {
 	position: relative;
 	height: 100%;
@@ -52,15 +44,13 @@ html {
 body {
 	position: relative;
 	height: 100%;
+	margin: 0px;
 	font-family: 'Quicksand',Arial,serif;
 	font-weight: 400;
 	.background-gradient(@DARK);
 }
 div#container {
 	position: relative;
-	width: 850px;
-	margin: 20px auto;
-	padding: 20px;
 }
 div#popup {
 	position: absolute;
@@ -84,35 +74,38 @@ svg#closeButton {
 	cursor: pointer;
 	opacity: 1.0;
 }
-svg#aboutButton {
+div#head {
 	position: relative;
-	top: 2px;
-	left: 460px;
+	width: 100%;
+}
+span#aboutButton {
+	position: absolute;
+	bottom: -2px;
+	right: 5px;
 	cursor: pointer;
 }
 div#controls {
 	.normal-text;
-	padding: 15px;
-	border: 1px solid black;
-	border-radius: 8px;
 	box-shadow: 0px 0px 20px #666;
-	font-size: 1.8em;
 	text-align: right;
 	.background-gradient(@ORANGE);
 }
 div#searchbox {
-	margin-bottom: 10px;
 	text-align: left;
 	border: 1px solid black;
 	border-radius: 5px;
 	position: relative;
 	.field-background;
 }
+div#searchbox {
+	margin-bottom: 10px;
+}
+span#iterations {
+	color: black;
+	text-shadow: -1px -1px 0px darken(@ORANGE, 20%);
+}
 input#query {
 	font-size: inherit;
-	height: 50px;
-	width: 670px;
-	padding-right: 150px;
 	padding-left: 5px;
 	background: transparent;
 	border: transparent;
@@ -122,12 +115,8 @@ button#searchBtn {
 	font-size: inherit;
 	font-family: inherit;
 	letter-spacing: -2px;
-	height: 40px;
-	width: 110px;
 	position: absolute;
-	right: 6px;
 	top: 50%;
-	margin-top: -20px;
 	border: 1px solid black;
 	border-radius: 5px;
 	.background-gradient(@ORANGE);
@@ -149,16 +138,15 @@ select#count {
 }
 div#searchResults {
 	.normal-text;
-	width: 735px;
-	margin: 0px auto 50px auto;
-	padding: 20px;
-	border-bottom-right-radius: 8px;
-	border-bottom-left-radius: 8px;
-	border-right: 1px solid black;
-	border-left: 1px solid black;
-	border-bottom: 1px solid black;
-	box-shadow: 0px 10px 20px #666;
-	.background-gradient(@ORANGE);
+}
+span#label_name {
+	color: black;
+	font-size: 30px;
+}
+span#label_size {
+	color: black;
+	float: right;
+	font-size: 30px;
 }
 div#content {
 	display: table;
@@ -168,9 +156,6 @@ div#content {
 div.row {
 	display: table-row;
 	line-height: 22px;
-}
-div.row:nth-child(2n) {
-	background-color: lighten(@ORANGE, 5%);
 }
 div.left {
 	display: table-cell;
@@ -183,4 +168,126 @@ div.middle {
 div.right {
 	display: table-cell;
 	text-align: right;
+}
+@media screen and (min-width: 831px) {
+	/*--- DESKTOP ---*/
+	//Define our link colors
+	a {
+		color: @DARK;
+		&:hover {color: @DARK}
+		&:visited {color: @DARK}
+		&:active {color: @DARK}
+	}
+	.normal-text {
+		color: black;
+		text-shadow: -1px -1px 0px darken(@ORANGE, 20%);
+	}
+	body {
+		color: @DARK;
+	}
+	div#container {
+		max-width: 850px;
+		min-width: 720px;
+		margin: 20px auto;
+		padding: 20px;
+	}
+	div#controls {
+		padding: 15px;
+		border: 1px solid black;
+		border-radius: 8px;
+		font-size: 1.8em;
+	}
+	div#searchbox {
+		margin-bottom: 10px;
+		padding-right: 125px;
+	}
+	input#query {
+		height: 50px;
+		width: 100%;
+	}
+	button#searchBtn {
+		height: 40px;
+		width: 110px;
+		right: 6px;
+		margin-top: -20px;
+	}
+	div#searchResults {
+		width: 735px;
+		margin: 0px auto 50px auto;
+		padding: 20px;
+		border-bottom-right-radius: 8px;
+		border-bottom-left-radius: 8px;
+		border-right: 1px solid black;
+		border-left: 1px solid black;
+		border-bottom: 1px solid black;
+		box-shadow: 0px 10px 20px #666;
+		.background-gradient(@ORANGE);
+	}
+	div.row:nth-child(2n) {
+		background-color: lighten(@ORANGE, 5%);
+	}
+}
+@media screen and (max-width: 830px) {
+	/*--- MOBILE ---*/
+	a {
+		color: @ORANGE;
+		&:hover {color: lighten(@ORANGE, 5%)}
+		&:visited {color: darken(@ORANGE, 5%)}
+		&:active {color: @ORANGE}
+	}
+	html {
+		width: 100%;
+	}
+	body {
+		width: 100%;
+		color: @ORANGE;
+	}
+	div#container {
+		width: 100%;
+	}
+	div#controls {
+		padding: 10px;
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+		font-size: 1.4em;
+	}
+	div#searchbox {
+		margin-bottom: 5px;
+		padding-right: 100px;
+	}
+	input#query {
+		height: 36px;
+		width: 100%;
+	}
+	button#searchBtn {
+		height: 30px;
+		width: 85px;
+		right: 4px;
+		margin-top: -15px;
+	}
+	div#searchResults {
+		width: 100%;
+		margin: 0px;
+		padding-top: 20px;
+	}
+	span#label_name {
+		color: @ORANGE;
+		padding-left: 20px;
+		text-shadow: -1px -1px 0px darken(@ORANGE, 20%);
+	}
+	span#label_size {
+		color: @ORANGE;
+		padding-right: 20px;
+		text-shadow: -1px -1px 0px darken(@ORANGE, 20%);
+	}
+	div.row:nth-child(2n) {
+		background-color: lighten(@DARK, 5%);
+	}
+	div.left {
+		padding-left: 20px;
+	}
+	div.right {
+		padding-right: 20px;
+		padding-left: 10px;
+	}
 }

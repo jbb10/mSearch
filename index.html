@@ -24,20 +24,24 @@
 				<line fill="none" stroke="#E7A555" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="11.996" y1="11.996" x2="28.559" y2="28.559"/>
 			</svg>
 		</div>
-		<embed src="logo.svg"></embed>
-		<svg version="1.1" id="aboutButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-			 width="40.555px" height="40.555px" viewBox="0 0 40.555 40.555" enable-background="new 0 0 40.555 40.555" xml:space="preserve">
-			<circle fill="none" stroke="#E7A555" stroke-width="2" stroke-miterlimit="10" cx="20.277" cy="20.277" r="12.053"/>
-			<path fill="none" stroke="#E7A555" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" d="M16.154,15.87
-				c0-3.059,2.836-3.878,4.257-3.878s3.99,0.486,3.99,3.679c0,3.192-3.991,3.976-3.991,6.901v1.949"/>
-			<circle fill="#E7A555" cx="20.277" cy="28.948" r="1.234"/>
-		</svg>
+		<div id="head">
+			<object data="logo.svg" type="image/svg+xml" id="logo"></object>
+			<span id="aboutButton">
+				<svg version="1.1" id="aboutButton" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					 width="40.555px" height="40.555px" viewBox="0 0 40.555 40.555" enable-background="new 0 0 40.555 40.555" xml:space="preserve">
+					<circle fill="none" stroke="#E7A555" stroke-width="2" stroke-miterlimit="10" cx="20.277" cy="20.277" r="12.053"/>
+					<path fill="none" stroke="#E7A555" stroke-width="2.5" stroke-linecap="round" stroke-miterlimit="10" d="M16.154,15.87
+						c0-3.059,2.836-3.878,4.257-3.878s3.99,0.486,3.99,3.679c0,3.192-3.991,3.976-3.991,6.901v1.949"/>
+					<circle fill="#E7A555" cx="20.277" cy="28.948" r="1.234"/>
+				</svg>
+			</span>
+		</div>
 		<div id="controls">
 			<div id="searchbox">
 				<input type="text" id="query" maxlength="300" placeholder="type the name of a song, artist or album"/>
 				<button id="searchBtn">Search</button>
 			</div>
-			Iterations:
+			<span id="iterations">Iterations:</span>
 			<select id="count">
 				<option value="1" selected="selected">1</option>
 				<option value="2">2</option>
@@ -52,8 +56,8 @@
 			</select>
 		</div>
 		<div id="searchResults" style="display: none">
-			<span class="label" style="font-size: 30px;">Name</span>
-			<span class="label" style="float: right; font-size: 30px;">Size</span>
+			<span id="label_name">Name</span>
+			<span id="label_size">Size</span>
 		    <div id="content"></div>
 		</div>
 	</div>
