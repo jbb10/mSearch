@@ -64,6 +64,8 @@ function search() {
 }
 var closeHover;
 $(document).ready(function() {
+	$('div#blanket').hide()
+	
 	//Attach click events to buttons
 	$('input#query').keypress(function(event) {
 		if(event.which == 13 && $('input#query').val() != "") {
@@ -77,12 +79,14 @@ $(document).ready(function() {
 	})
 	$('svg#aboutButton').on('mouseup', function() {
 		$('div#popup').fadeIn("fast")
+		$('div#blanket').fadeIn("fast")
 	})
 	
 	//Hide the popup if user clicks on the close
 	//button or outside the popup
 	$('html').on('mousedown', function() {
 		$('div#popup').fadeOut("fast")
+		$('div#blanket').fadeOut("fast")
 	})
 	$('svg#closeButton').hover(function() {
 		closeHover = true
